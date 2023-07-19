@@ -43,7 +43,7 @@ sudo cp /home/pi/Downloads/zapamaster/master.py "${PROGRAM_FILE_PATH}"
 echo " - installing config file to ${CONF_FILE_PATH}"
 sudo tee "${CONF_FILE_PATH}" >/dev/null <<EOF
 # replace ... with an ASCII string 16, 24, or 32 characters long
-secret: 0000000000000000
+secret: "0000000000000000"
 # list the slave addresses this master manages
 slaves:
  - 0x01
