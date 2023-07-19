@@ -43,11 +43,15 @@ sudo cp /home/pi/Downloads/zapamaster/master.py "${PROGRAM_FILE_PATH}"
 echo " - installing config file to ${CONF_FILE_PATH}"
 sudo tee "${CONF_FILE_PATH}" >/dev/null <<EOF
 # replace ... with an ASCII string 16, 24, or 32 characters long
-secret: ...
+secret: 0000000000000000
 # list the slave addresses this master manages
 slaves:
- - ... # replace ... with address, e.g. 0x01
- - ...
+ - 0x01
+ - 0x02
+ - 0x03
+ - 0x04
+ - 0x05
+ 
 # delay before an ack is sent back (in seconds)
 # if not specified, default is 0.1
 ack_delay: 0.1
