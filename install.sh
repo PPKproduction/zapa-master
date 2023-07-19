@@ -37,7 +37,7 @@ sudo pip install pyyaml pycryptodome adafruit-circuitpython-rfm9x
 # install the program
 echo " - installing program to ${PROGRAM_FILE_PATH}"
 sudo mkdir -p "$(dirname "${PROGRAM_FILE_PATH}")"
-sudo cp master.py "${PROGRAM_FILE_PATH}"
+sudo cp /home/pi/Downloads/zapamaster/master.py "${PROGRAM_FILE_PATH}"
 
 # place configuration file
 echo " - installing config file to ${CONF_FILE_PATH}"
