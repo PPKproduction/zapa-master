@@ -63,6 +63,8 @@ ack_wait: 0.25
 tx_power: 13
 EOF
 
+sudo nano ${CONF_FILE_PATH}
+
 # place systemd unit file
 echo " - installing systemd unit file to ${SYSTEMD_UNIT_FILE_PATH}"
 sudo tee "${SYSTEMD_UNIT_FILE_PATH}" >/dev/null <<EOF
