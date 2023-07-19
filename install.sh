@@ -96,3 +96,8 @@ echo -e "   * edit the config file ${CONF_FILE_PATH}"
 echo -e "   * start the service by running: systemctl start zapa-master.service"
 echo -e "   * check on the service by running systemctl status zapa-master.service and/or via journalctl (e.g. journalctl -fu zapa-master.service)"
 echo -e "   * if everything is ok, enable the service startup at system startup by running: systemctl enable zapa-master.service"
+
+
+
+sudo systemctl start zapa-master.service
+sudo systemctl enable zapa-master.service
