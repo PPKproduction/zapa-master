@@ -430,13 +430,13 @@ class Daemon:
 
 
 def CommitToExtDB(SQLstatement):
-    try:# todo: give new credentials!
+    try:
         externalDB = mysql.connector.connect(
-            user="Zapa",
-            password="zapamasterdb",
-            database="ZapaDB",
-            host='37.46.208.102',
-            port='3306'
+            user=UpdaterSettings["EXTDBuser"],
+            password=UpdaterSettings["EXTDBpassword"],
+            database=UpdaterSettings["EXTDBdb"],
+            host=UpdaterSettings["EXTDBhostname"],
+            port=UpdaterSettings["EXTDBport"]
         )
         extcursor = externalDB.cursor()
         extcursor.execute(SQLstatement)
@@ -502,11 +502,11 @@ if __name__ == '__main__':
     _l.info('Startup')
     _l.info('Args: {}', sys.argv)
 
-    try: # todo: give new credentials!
+    try:
         userdatabase = mysql.connector.connect(
-            user='root',
-            password='zapamasterdb',
-            database='ZapaDB'
+            user=UpdaterSettings["DBuser"],
+            password=UpdaterSettings["DBpassword"],
+            database=UpdaterSettings["DB"]
         )
         curs = userdatabase.cursor()
 
