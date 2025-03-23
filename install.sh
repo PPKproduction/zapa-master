@@ -2,15 +2,15 @@
 
 set -e
 
-PROGRAM_FILE_PATH="/opt/zapa-master/master.py"
-CONF_FILE_PATH="/etc/zapa-master.conf.yaml"
-SYSTEMD_UNIT_FILE_PATH="/etc/systemd/system/zapa-master.service"
+PROGRAM_FILE_PATH="/opt/waus/master.py"
+CONF_FILE_PATH="/etc/waus.conf.yaml"
+SYSTEMD_UNIT_FILE_PATH="/etc/systemd/system/waus.service"
 
 if [ "$1" = '-u' -o "$1" = '--uninstall' ]; then
     echo -e "\033[1;37mUninstalling...\033[0m"
 
     echo " - stopping the service"
-    sudo systemctl stop zapa-master.service
+    sudo systemctl stop waus.service
 
     echo " - removing $(dirname "${PROGRAM_FILE_PATH}")"
     sudo rm -rf "$(dirname "${PROGRAM_FILE_PATH}")"
@@ -73,7 +73,7 @@ sudo nano ${CONF_FILE_PATH}
 echo " - installing systemd unit file to ${SYSTEMD_UNIT_FILE_PATH}"
 sudo tee "${SYSTEMD_UNIT_FILE_PATH}" >/dev/null <<EOF
 [Unit]
-Description = Zapa Beton radio master daemon
+Description = WAUS radio master daemon
 After = network.target
 
 [Service]
@@ -99,11 +99,11 @@ sudo systemctl daemon-reload
 echo "Installation complete."
 echo -e "\033[1;31mThings you sould do now:\033[0m"
 echo -e "   * edit the config file ${CONF_FILE_PATH}"
-echo -e "   * start the service by running: systemctl start zapa-master.service"
-echo -e "   * check on the service by running systemctl status zapa-master.service and/or via journalctl (e.g. journalctl -fu zapa-master.service)"
-echo -e "   * if everything is ok, enable the service startup at system startup by running: systemctl enable zapa-master.service"
+echo -e "   * start the service by running: systemctl start waus.service"
+echo -e "   * check on the service by running systemctl status waus.service and/or via journalctl (e.g. journalctl -fu waus.service)"
+echo -e "   * if everything is ok, enable the service startup at system startup by running: systemctl enable waus.service"
 
 
 
-sudo systemctl start zapa-master.service
-sudo systemctl enable zapa-master.service
+sudo systemctl start waus.service
+sudo systemctl enable waus.service
